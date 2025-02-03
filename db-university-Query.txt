@@ -1,0 +1,66 @@
+QUERY CON SELECT:
+
+1)
+SELECT *
+FROM `students`
+WHERE year(`date_of_birth`) = 1990;
+
+2)
+SELECT *
+FROM `courses`
+WHERE `cfu` > 10;
+
+3)
+SELECT *
+FROM `students`
+WHERE YEAR(`date_of_birth`) < 1995
+ORDER BY `date_of_birth`;
+
+4)
+SELECT *
+FROM `courses`
+WHERE `period` LIKE 'I s%'
+AND `year` = 1;
+
+5)
+SELECT *
+FROM `exams`
+WHERE HOUR(`hour`) > 13
+AND `date` = '2020-06-20'
+ORDER BY `hour`;
+
+6)
+SELECT *
+FROM `degrees`
+WHERE `level` LIKE 'magistrale';
+
+7)
+SELECT COUNT(`id`) AS NumeroDipartimenti
+FROM `departments`;
+
+8)
+SELECT *
+FROM `teachers`
+WHERE `phone` IS NULL;
+
+9)
+
+//se nei VALUES inserisco un valore per ogni campo posso omettere le colonne dentro INSERT INTO
+
+INSERT INTO `students`
+VALUES (10'000, 26, 'Mattia', 'Natella', '1994-10-16', 'NTLMTT94R16G702J', '2025-02-03', 63000, 'mattianatella@gmail.com');
+
+10)
+UPDATE `teachers`
+SET `office_number` = 126
+WHERE `id` = 58;
+
+11)
+DELETE FROM `students`
+WHERE `id` = 10000
+
+
+QUERY CON GROUP BY
+
+
+
