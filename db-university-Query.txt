@@ -65,6 +65,25 @@ QUERY CON GROUP BY
 
 
 
+1)
+SELECT COUNT(*) AS `NumeroStudenti`, YEAR(`enrolment_date`) AS `AnnoIscrizione`
+FROM `students`
+GROUP BY `AnnoIscrizione`
+ORDER BY `AnnoIscrizione`;
 
+2)
+SELECT COUNT(*), `office_address`
+FROM `teachers`
+GROUP BY `office_address`
+
+3)
+SELECT AVG(`vote`) AS MediaVoti, `exam_id`
+FROM `exam_student`
+GROUP BY `exam_id`;
+
+4)
+SELECT COUNT(*) AS NumeroCorsi, `degree_id` AS CorsoDiLaurea
+FROM `courses`
+GROUP BY CorsoDiLaurea;
 
 
