@@ -44,4 +44,3 @@ JOIN `course_teacher` CT ON `CT`.course_id = `C`.id
 JOIN `teachers` T ON `T`.id = `CT`.teacher_id
 WHERE `DP`.name = 'dipartimento di matematica'
 GROUP BY `DP`.id, `T`.name, `T`.surname;
-
