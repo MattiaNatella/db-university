@@ -44,3 +44,12 @@ JOIN `course_teacher` CT ON `CT`.course_id = `C`.id
 JOIN `teachers` T ON `T`.id = `CT`.teacher_id
 WHERE `DP`.name = 'dipartimento di matematica'
 GROUP BY `DP`.id, `T`.name, `T`.surname;
+
+BONUS
+
+SELECT `S`.id,`S`.name, `S`.surname, `E`.id, COUNT(*) tentativi, MAX(`ES`.vote) `voto_massimo`
+FROM `students` S
+JOIN `exam_student` ES ON `S`.id = `ES`.student_id
+JOIN `exams` E ON `E`.id = `ES`.exam_id
+GROUP BY `S`.id, `S`.name, `S`.surname, `E`.id
+HAVING `voto_massimo` >= 18;
