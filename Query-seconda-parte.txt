@@ -1,0 +1,47 @@
+Seconda parte query DB-UNIVERSITY
+
+1)
+SELECT `students`.*
+FROM `students`
+JOIN `degrees` ON `degrees`.id = `students`.degree_id
+WHERE degrees.name = 'corso di laurea in economia';
+
+2)
+SELECT `degrees`.*
+FROM `degrees`
+JOIN `departments` ON `departments`.id = `degrees`.department_id
+WHERE `departments`.name = 'dipartimento di neuroscienze'
+AND `degrees`.level = 'magistrale';
+
+3)
+SELECT `T`.id, `C`.id id_corso, `C`.name nome_corso
+FROM `teachers`AS T
+JOIN `course_teacher` CT ON `T`.id = `CT`.teacher_id
+JOIN `courses` C ON `C`.id = `CT`.course_id
+WHERE `T`.id = 44;
+
+4)
+SELECT `students`.id, `students`.name, `students`.surname, `degrees`.name, `departments`.id id_dipartimento
+FROM `students`
+JOIN `degrees` ON `degrees`.id = `students`.degree_id
+JOIN `departments` ON `departments`.id = `degrees`.department_id
+ORDER BY `students`.surname, `students`.name
+
+5)
+SELECT `D`.id, `D`.name dipartiment, `C`.name corso_di_laurea,`T`.id id_insegnante, `T`.surname as cognome_ins, `T`.name nome_insegnante
+FROM `degrees` D
+JOIN `courses` C ON `C`.degree_id = `D`.id
+JOIN `course_teacher` CT ON `C`.id = `CT`.course_id
+JOIN `teachers` T ON `T`.id = `CT`.teacher_id
+ORDER BY `D`.id;
+
+6)
+SELECT `DP`.id id_dipartimento, `T`.name, `T`.surname
+FROM `departments` DP
+JOIN `degrees` D ON `DP`.id = `D`.department_id
+JOIN `courses` C ON `C`.degree_id = `D`.id
+JOIN `course_teacher` CT ON `CT`.course_id = `C`.id
+JOIN `teachers` T ON `T`.id = `CT`.teacher_id
+WHERE `DP`.name = 'dipartimento di matematica'
+GROUP BY `DP`.id, `T`.name, `T`.surname;
+
